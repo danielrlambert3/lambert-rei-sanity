@@ -7,7 +7,8 @@ export const schemaTypes = [
             {
                 name: 'state',
                 type: 'string',
-                title: 'State'
+                title: 'State',
+                validation: (Rule) => { return Rule.required()}
             },
             {
                 name: 'stateAbbreviation',
@@ -22,7 +23,8 @@ export const schemaTypes = [
             {
                 name: 'slug',
                 type: 'slug',
-                title: 'Slug'
+                title: 'Slug',
+                validation: (Rule) => { return Rule.required()}
             }
         ]
     },
@@ -34,7 +36,8 @@ export const schemaTypes = [
             {
                 name: 'city',
                 type: 'string',
-                title: 'City'
+                title: 'City',
+                validation: (Rule) => { return Rule.required()}
             },
             {
                 name: 'coverImage',
@@ -44,7 +47,8 @@ export const schemaTypes = [
             {
                 name: 'slug',
                 type: 'slug',
-                title: 'Slug'
+                title: 'Slug',
+                validation: (Rule) => { return Rule.required()}
             }
         ]
     },
@@ -56,7 +60,8 @@ export const schemaTypes = [
             {
                 name: 'street',
                 type: 'string',
-                title: 'Street'
+                title: 'Street',
+                validation: (Rule) => { return Rule.required()}
             },
             {
                 name: 'city',
@@ -83,15 +88,80 @@ export const schemaTypes = [
             {
                 name: 'coverImage',
                 type: 'image',
-                title: 'Cover Image'
+                title: 'Cover Image',
+                options: {
+                  hotspot: true
+                }
             },
             {
                 name: 'slug',
                 type: 'slug',
-                title: 'Slug'
+                title: 'Slug',
+                validation: (Rule) => { return Rule.required()}
             }
 
         ]
-    }
-
+    },
+    {
+        name: 'blog',
+        type: 'document',
+        title: 'Blog',
+        fields: [
+          {
+            name: 'title',
+            type: 'string',
+            title: 'Title'
+          },
+          {
+            name: 'subtitle',
+            type: 'string',
+            title: 'Subtitle'
+          },
+          {
+            name: 'slug',
+            type: 'slug',
+            title: 'Slug',
+            validation: (Rule) => { return Rule.required()}
+          },
+          {
+            name: 'coverImage',
+            type: 'image',
+            title: 'Cover Image',
+            fields: [
+                {
+                  type: 'text',
+                  name: 'alt',
+                  title: 'Description'
+                }
+              ]
+        },
+        {
+            name: 'content',
+            title: 'Content',
+            type: 'array',
+            of: [
+              {
+                type: 'block'
+              },
+              {
+                type: 'image',
+                fields: [
+                  {
+                    type: 'text',
+                    name: 'alt',
+                    title: 'Description',
+                    options: {
+                      isHighlighted: true
+                    }
+                  }
+                ],
+                options: {
+                  hotspot: true
+                }
+              }
+            ]
+          }
+          
+        ]
+      }
 ]
