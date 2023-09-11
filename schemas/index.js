@@ -27,14 +27,14 @@ export const schemaTypes = [
                 validation: (Rule) => { return Rule.required()}
             },
             {
-              name: 'title',
+              name: 'metaTitle',
               type: 'string',
-              title: 'Title'
+              title: 'Meta Title'
             },
             {
-              name: 'description',
+              name: 'metaDescription',
               type: 'string',
-              title: 'Description'
+              title: 'Meta Description'
             }
         ]
     },
