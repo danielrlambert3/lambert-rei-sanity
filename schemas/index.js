@@ -50,6 +50,12 @@ export const schemaTypes = [
                 validation: (Rule) => { return Rule.required()}
             },
             {
+                name: 'state',
+                type: 'reference',
+                title: 'State',
+                to: [{type: 'state'}]
+            },
+            {
                 name: 'coverImage',
                 type: 'image',
                 title: 'Cover Image'
